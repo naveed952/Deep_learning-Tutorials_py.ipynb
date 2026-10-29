@@ -1,0 +1,14 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+nbformat
+nbclient
+ipykernel
+pillow
+torch
+torchvision
+keras>=3.10
+torchmetrics
+pycocotools
+ultralytics

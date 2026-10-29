@@ -1,0 +1,11 @@
+data/
+artifacts/
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+*.pt
+*.pth
+*.keras
+.env
+.venv/
+runs/
