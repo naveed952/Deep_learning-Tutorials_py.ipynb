@@ -26,7 +26,7 @@ def curves(histories, metric='loss'):
     ax.set(xlabel='Epoch', ylabel=metric); ax.legend(fontsize=7); plt.tight_layout(); plt.show()
 
 def sample_image():
-    # Public-domain sample bundled with scikit-learn; no personal photo uploaded.
+    # CC BY 2.0 sample bundled with scikit-learn; no personal photo uploaded.
     from sklearn.datasets import load_sample_image
     from PIL import Image
     path = DATA/'sample_flower.jpg'

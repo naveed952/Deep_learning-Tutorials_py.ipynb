@@ -68,6 +68,10 @@ Iris and the public sample photograph come from scikit-learn. MNIST/CIFAR-10 use
 
 Downloads, model weights and generated artifacts are ignored by Git. Only source, explanations, and verified notebook outputs are intended for upload. `artifacts/` stores generated images, metrics and optional training files locally. No personal images or course PDFs are uploaded.
 
+## Assignment and exam preparation
+
+Read [the assignment checklist](ASSIGNMENT_CHECKLIST.md) before submission. Every notebook ends with task answers, interpretation guidance and numerical revision questions. See [third-party notices](THIRD_PARTY_NOTICES.md) for the sample-photo attribution.
+
 ## Verification
 
 ```bash

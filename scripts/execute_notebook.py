@@ -12,14 +12,20 @@ kdir=root/'artifacts'/'kernels'/'tutorials';kdir.mkdir(parents=True,exist_ok=Tru
 (kdir/'kernel.json').write_text(json.dumps({'argv':[sys.executable,'-m','ipykernel_launcher','-f','{connection_file}'],'display_name':'Tutorial runtime','language':'python'}))
 ksm=KernelSpecManager(kernel_dirs=[str(kdir.parent)])
 path=(root/args.notebook).resolve();book=nbformat.read(path,as_version=4);start=time.time()
+# Never retain stale results from a previous run after a later-cell failure.
+for cell in book.cells:
+    if cell.cell_type=='code':cell.outputs=[];cell.execution_count=None
 client=NotebookClient(book,timeout=args.timeout,kernel_name='tutorials',resources={'metadata':{'path':str(root)}},allow_errors=False)
 from jupyter_client import KernelManager
 client.km=KernelManager(kernel_name='tutorials',kernel_spec_manager=ksm)
 status='passed'
 try:client.execute()
-except Exception:
-    status='failed';raise
+except BaseException as error:
+    status='interrupted' if isinstance(error,KeyboardInterrupt) else 'failed'
+    raise
 finally:
+    if status=='passed':
+        book.cells=[cell for cell in book.cells if not (cell.cell_type=='markdown' and cell.source.startswith('**Execution status:**'))]
     nbformat.write(book,path)
     (root/'artifacts'/(path.stem+'_execution.json')).write_text(json.dumps({'notebook':path.name,'status':status,'seconds':time.time()-start,'full':os.environ.get('TUTORIAL_FULL')=='1'},indent=2))
 print('PASS',path.name,round(time.time()-start,1),'seconds')
