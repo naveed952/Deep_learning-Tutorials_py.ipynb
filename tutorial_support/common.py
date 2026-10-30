@@ -35,6 +35,7 @@ def sample_image():
 
 def torch_setup():
     import torch
+    torch.hub.set_dir(str(DATA/'torch'/'hub'))
     seed(); torch.manual_seed(SEED); torch.set_num_threads(min(4,os.cpu_count() or 1))
     return torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -45,3 +46,11 @@ def keras_setup():
     import keras
     torch_setup();keras.utils.set_random_seed(SEED)
     return keras
+
+
+def cifar10_arrays():
+    # One shared download for Keras and PyTorch tutorials.
+    from torchvision.datasets import CIFAR10
+    train=CIFAR10(DATA,train=True,download=True)
+    test=CIFAR10(DATA,train=False,download=True)
+    return (train.data,np.asarray(train.targets)),(test.data,np.asarray(test.targets))
