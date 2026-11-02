@@ -1,6 +1,6 @@
 # Deep Learning tutorials with worked explanations
 
-Ten executable notebooks covering the nine course tutorials (Tutorial 8 has two versions). Each notebook explains the objective, data, model, training, evaluation and assigned experiments. The existing `Perceptron.py` is preserved.
+Ten executable notebooks covering the nine course tutorials (Tutorial 8 has two versions). Each notebook explains the objective, data, model, training, evaluation and assigned experiments.
 
 ## Start here
 
