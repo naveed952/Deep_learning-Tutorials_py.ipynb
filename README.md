@@ -88,4 +88,4 @@ See [VALIDATION.md](VALIDATION.md) for the actual execution status. An unexecute
 - [Official detection fine-tuning tutorial](https://docs.pytorch.org/tutorials/intermediate/torchvision_tutorial.html)
 - [Ultralytics training](https://docs.ultralytics.com/modes/train/)
 
-Third-party software/datasets retain their own licenses. Ultralytics uses AGPL-3.0 or an enterprise license. This repository does not redistribute pretrained weights. Explanatory notebooks were prepared with AI assistance and should be studied and rerun before submission or presentation.
+Third-party software/datasets retain their own licenses. 
